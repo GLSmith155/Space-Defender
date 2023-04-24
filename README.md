@@ -13,19 +13,25 @@ The game ends if your base health reaches 0.
 
 # Game Features
 Enemies: Three enemy types with different health and speeds. Stronger and faster enemies appear in higher levels.
+
 Defenses: Three types of defenses with various attributes like attack range, damage, burst damage, and burst rate. Choose the right defense for each situation.
+
 Resources: Collect resources by defeating enemies. Use resources to build defenses and keep your base safe.
+
 Health: Your base health decreases when an enemy reaches it. The game ends when your base health is 0.
-Design Details
-The game uses the Pygame library for Python. The main game loop manages user input, game logic, and visuals. Key classes include Level and Defense.
 
 # Level class: This class is responsible for generating, moving, and drawing enemies. It also handles level progression and updating enemy health.
 generate_enemies(): Creates a specific number of enemies for the current level.
+
 move_enemies(): Updates the position of enemies based on their speed.
+
 draw_enemies(): Draws the enemies on the screen.
+
 next_level(): Starts the next level by increasing the level count and generating new enemies.
 
 # Defense class: This class manages the placement and attacking behavior of defenses.
 draw(): Draws the defense on the screen, along with its attack radius.
+
 is_inside_radius(): Checks if an enemy is within the defense's attack range.
+
 The game features simple 2D graphics for the base, enemies, defenses, and background.
