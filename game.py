@@ -23,7 +23,7 @@ enemy_img3 = resize_image(pygame.image.load("enemy3.png"), 10)
 enemy_images = [enemy_img1, enemy_img2, enemy_img3]  
 background_img = pygame.image.load("background_image.jpg")
 game_over_img = resize_image(pygame.image.load("game_over_image.png"), 5)
-defense1 = resize_image(pygame.image.load("defense1.png"), 8)
+defense1 = resize_image(pygame.image.load("defense1.png"), 10)
 defense2 = resize_image(pygame.image.load("defense2.png"), 28)
 defense3 = resize_image(pygame.image.load("defense3.png"), 12)
 
@@ -49,6 +49,7 @@ selected_defense = None
 defenses = []
 waiting_for_next_level = False
 tower_info_text = font.render("Press 1, 2, or 3 to place towers (50, 200, or 500 resources).", True, (255, 255, 255))
+press_enter_text = font.render("Press ENTER to proceed to the next level.", True, (255, 255, 255))
 
 while running:
     elapsed_time = pygame.time.Clock().tick(60) / 1000
@@ -59,13 +60,13 @@ while running:
             if not placing_defense:
                 if event.key == pygame.K_1 and resources >= 50:
                     placing_defense = True
-                    selected_defense = Defense(defense1, 0, 0, 150, 0, 2, .1, 50)
+                    selected_defense = Defense(defense1, 0, 0, 150, 0, 6, .1, 50)
                 elif event.key == pygame.K_2 and resources >= 200:
                     placing_defense = True
-                    selected_defense = Defense(defense2, 0, 0, 100, 0, 20, .3, 200)
+                    selected_defense = Defense(defense2, 0, 0, 100, 0, 40, .3, 200)
                 elif event.key == pygame.K_3 and resources >= 500:
                     placing_defense = True
-                    selected_defense = Defense(defense3, 0, 0, 50, 0, 100, 0.2, 500)
+                    selected_defense = Defense(defense3, 0, 0, 50, 0, 200, 0.2, 500)
         elif event.type == pygame.MOUSEBUTTONDOWN:
             if placing_defense and selected_defense is not None:
                 defenses.append(Defense(selected_defense.image, selected_defense.x, selected_defense.y, selected_defense.radius, selected_defense.damage, selected_defense.burst_damage, selected_defense.burst_rate, selected_defense.cost))
@@ -104,10 +105,23 @@ while running:
             resources += 23
 
     if not level_manager.enemies and not waiting_for_next_level:
+        pygame.display.update()
         waiting_for_next_level = True
-       # pygame.time.delay(5000)
-        level_manager.next_level()
-        waiting_for_next_level = False
+        screen.blit(press_enter_text, (WIDTH // 2 - press_enter_text.get_width() // 2, HEIGHT - 40))
+        pygame.display.update()
+
+        enter_pressed = False
+        while not enter_pressed:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
+                    enter_pressed = True
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_RETURN:
+                        level_manager.next_level()
+                        waiting_for_next_level = False
+                        enter_pressed = True
+
 
     for defense in defenses:
         defense.draw(screen, camera.x, camera.y)

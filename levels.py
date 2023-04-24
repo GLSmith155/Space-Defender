@@ -19,26 +19,29 @@ class Level:
 
     def generate_enemies(self):
         num_enemies = 12 * (2 ** (self.level - 1))
-        
+
         for i in range(num_enemies):
             enemy_type = 0
-            
+
             if self.level >= 2 and i % 2 == 0:
                 enemy_type = 1
-                
+
             if self.level >= 4 and i % (self.level - 2) == 0:
                 enemy_type = 2
-                
+
+            enemy_speeds = [1, 3, 4]
+
             enemy = {
                 "img": self.enemy_img[enemy_type],
                 "x": self.enemy_base_x,
                 "y": random.randint(self.enemy_base_y, self.enemy_base_y + self.enemy_base_height - self.enemy_img[enemy_type].get_height()),
-                "speed": 1,
+                "speed": enemy_speeds[enemy_type],
                 "spawn_time": time.time() + random.uniform(1, 14),
                 "health": 100 * (2 ** enemy_type)
             }
-            
+
             self.enemies.append(enemy)
+
 
     def move_enemies(self):
         for enemy in self.enemies:
