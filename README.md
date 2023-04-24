@@ -2,7 +2,7 @@
 Space Defense serves as a PyGame foundation for the tower defense genre. Your goal is to protect your base from waves of enemies by placing defenses. Current missing features: Being able to level up defenses. Having a greater variety of defenses, as well as some that serve as utility like slowing down opponents. Greater variety of enemies that progressively get tougher more so than the three I currently have. I would also like if the enemies could come from all directions at the base in the center rather than the current state where they only go right to left.
 
 # How to Play
-Start the game by opening the cmd in the directory of the game and typing "python game.py"
+Start the game by opening the cmd in the parent directory of the game and typing "python -m Space_Defense"
 Your base is on the left side, and enemies appear from the right.
 Enemies move from right to left, attempting to reach your base. Stop them by setting up defenses.
 To place a defense, press 1, 2, or 3 to choose a defense type. Each type has a different resource cost: 50, 200, or 500 resources.
