@@ -2,7 +2,7 @@
 Space Defense is a fun and easy-to-understand 2D defense game. Your goal is to protect your base from waves of enemies by placing defenses. Defeat enemies to gather resources, build more defenses, and survive through levels.
 
 # How to Play
-Start the game using a Python interpreter with Pygame library support.
+Start the game by open the cmd in the directory and typing python game.py
 Your base is on the left side, and enemies appear from the right.
 Enemies move from right to left, attempting to reach your base. Stop them by setting up defenses.
 To place a defense, press 1, 2, or 3 to choose a defense type. Each type has a different resource cost: 50, 200, or 500 resources.
