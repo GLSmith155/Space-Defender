@@ -1,5 +1,5 @@
 # Space Defense
-Space Defense is a fun and easy-to-understand 2D defense game. Your goal is to protect your base from waves of enemies by placing defenses. Defeat enemies to gather resources, build more defenses, and survive through levels.
+Space Defense is a simple foundation for a 2-D defense game. Your goal is to protect your base from waves of enemies by placing defenses. This project served as a nice pygame foundation for a tower defense game, though some details I would like to add to it would be other tower defense features that are currently missing, such as: Being able to level up defensed. Having a greater variety of defenses, as well as some that serve as utility like slowing down opponents. Greater variety of enemies that progressively get tougher more so than the three I currently have. And an idea I had would also be that the enemies could come from all directions at the base in the center rather than the current state where they only come from the right side.
 
 # How to Play
 Start the game by open the cmd in the directory and typing python game.py
