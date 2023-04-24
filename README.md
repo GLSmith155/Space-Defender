@@ -33,5 +33,3 @@ next_level(): Starts the next level by increasing the level count and generating
 draw(): Draws the defense on the screen, along with its attack radius.
 
 is_inside_radius(): Checks if an enemy is within the defense's attack range.
-
-The game features simple 2D graphics for the base, enemies, defenses, and background.
